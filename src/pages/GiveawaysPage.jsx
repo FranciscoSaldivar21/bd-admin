@@ -8,15 +8,11 @@ export const GiveawaysPage = () => {
   const navigate = useNavigate();
   return (
     <Layout>
-        <div>
-          <button onClick={() => navigate("/newgiveaway")}>Nuevo sorteo</button>
+        <div className="mx-auto mb-4">
+          <button className="bg-blue-500 px-3 py-2 rounded-md font-normal text-white hover:bg-blue-600" onClick={() => navigate("/newgiveaway")}>Nuevo sorteo</button>
         </div>
-        <div>
-          <ActiveGiveaways />
-        </div>
-        <div>
-          <NoActiveGiveaways />
-        </div>
+        <ActiveGiveaways />
+        <NoActiveGiveaways />
     </Layout>
   )
 }

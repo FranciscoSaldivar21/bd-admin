@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { HomePage, LoginPage, GiveawaysPage, ClientsPage, GiveawayPage, NewGiveawayPage } from "../pages";
+import { HomePage, LoginPage, GiveawaysPage, ClientsPage, GiveawayPage, NewGiveawayPage, ClientPage, TicketPage, SalesPage, SalePage } from "../pages";
 import { userStore } from "../store/userStore";
 
 const AppRouter = () => {
@@ -13,6 +13,10 @@ const AppRouter = () => {
       <Route path="/newgiveaway" element={ id ? <NewGiveawayPage /> : <LoginPage />} />
       <Route path="/giveaway/:id" element={ id ? <GiveawayPage /> : <LoginPage />} />
       <Route path="/clients" element={id ? <ClientsPage /> : <LoginPage />} />
+      <Route path="/client/:id" element={id ? <ClientPage /> : <LoginPage />} />
+      <Route path="/ticket" element={id ? <TicketPage /> : <LoginPage />} />
+      <Route path="/sales" element={id ? <SalesPage /> : <LoginPage />} />
+      <Route path="/sale" element={id ? <SalePage /> : <LoginPage />} />
     </Routes>
   );
 };

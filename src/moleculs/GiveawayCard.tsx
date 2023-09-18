@@ -1,4 +1,7 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiURL } from "../api/config";
 
 interface ICarProps {
   id: number;
@@ -14,6 +17,23 @@ interface ICarProps {
 export const GiveawayCard = ({ giveaway }: ICarProps) => {
   const navigate = useNavigate();
 
+  const [images, setImages] = useState([{ image_name: "" }]);
+
+  const getImages = async () => {
+    try {
+      const { data } = await axios.get(
+        `${apiURL}giveaway/images/${giveaway.id}`
+      );
+      setImages(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getImages();
+  }, []);
+
   const handleButtonPress = () => {
     navigate(`/giveaway/${giveaway.id}`);
   };
@@ -22,7 +42,7 @@ export const GiveawayCard = ({ giveaway }: ICarProps) => {
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
       <img
         className="w-full"
-        src="https://img.remediosdigitales.com/1c4e7f/bl5a8845/1366_2000.jpeg"
+        src={`https://black-diamond-back-production.up.railway.app/uploads/${images[0].image_name}`}
         alt="Sunset in the mountains"
       />
       <div className="px-6 py-4">

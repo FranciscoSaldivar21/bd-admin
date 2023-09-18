@@ -4,3 +4,7 @@ export * from "./GiveawaysPage";
 export * from "./ClientsPage";
 export * from "./GiveawayPage";
 export * from "./NewGiveawayPage";
+export * from "./ClientPage";
+export * from "./TicketPage";
+export * from "./SalesPage";
+export * from "./SalePage";

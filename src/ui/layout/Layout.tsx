@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="w-full">
+    <div className="w-full mb-10">
       <SideBar />
       <div className="w-full mt-12 pl-72 pr-4">{children}</div>
       {/* <Footer /> */}

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { isValidEmail } from "../helpers/isValidEmail";
 import { userStore } from "../store/userStore";
+import { apiURL } from "../api/config";
 
 
 
@@ -41,17 +42,18 @@ export const LoginPage = () => {
     //Peticion al servidor
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/admin/auth",
+        `${apiURL}admin/auth`,
         {
           email,
           password,
         }
       );
       const { data } = response;
-        console.log(data.id);
+
       setUserId(data.id);
       setUserEmail(data.email);
       setUserToken(data.token);
+      console.log(data);
     } catch (error) {
       if (error) {
         const errorMessage = error.response.data.error;
